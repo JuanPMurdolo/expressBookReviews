@@ -10,10 +10,6 @@ app.use(express.json());
 
 app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUninitialized: true}))
 
-
-const jwt = require('jsonwebtoken');
-const session = require('express-session');
-
 app.use("/customer/auth/*", function auth(req,res,next){
     if (req.session && req.session.user) {
         return next();
